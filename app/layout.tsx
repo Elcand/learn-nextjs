@@ -30,7 +30,10 @@ export default function Layout({ children }: LayoutProps) {
           </nav>
         </header>
         <main>{children}</main>
-        <footer>[footer]</footer>
+        <footer>
+          <hr />
+          <p>I'm here to stay (footer)</p>
+        </footer>
       </body>
     </html>
   );
