@@ -7,7 +7,7 @@ export default function navbar() {
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>
+        <li className="ml-auto">
           <Link href="/blog">Blog</Link>
         </li>
         <li>
