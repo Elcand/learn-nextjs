@@ -1,6 +1,9 @@
 import Heading from "@/app/components/heading";
+import { readFile } from "node:fs/promises";
 
-export default function BelajarNextjs() {
+export default async function BelajarNextjs() {
+  const text = await readFile("./content/blog/belajar-nextjs.md", "utf8");
+
   return (
     <>
       <Heading>Belajar Next.js</Heading>
@@ -11,7 +14,7 @@ export default function BelajarNextjs() {
         height={360}
         className="mb-2 rounded"
       />
-      <p>haloooo</p>
+      <p>{text}</p>
     </>
   );
 }
