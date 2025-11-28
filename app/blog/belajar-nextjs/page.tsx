@@ -1,8 +1,10 @@
 import Heading from "@/app/components/heading";
+import { marked } from "marked";
 import { readFile } from "node:fs/promises";
 
 export default async function BelajarNextjs() {
   const text = await readFile("./content/blog/belajar-nextjs.md", "utf8");
+  const html = marked(text);
 
   return (
     <>
@@ -14,7 +16,7 @@ export default async function BelajarNextjs() {
         height={360}
         className="mb-2 rounded"
       />
-      <p>{text}</p>
+      <article dangerouslySetInnerHTML={{ __html: html }}></article>
     </>
   );
 }
