@@ -1,7 +1,9 @@
+import Heading from "@/app/components/heading";
+
 export default function ContactPage() {
   return (
     <>
-      <h1>Contact</h1>
+      <Heading>Contact</Heading>
       <p>haloooo</p>
     </>
   );

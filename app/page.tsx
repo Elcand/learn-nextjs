@@ -1,7 +1,9 @@
+import Heading from "@/app/components/heading";
+
 export default function Home() {
   return (
     <>
-      <h1>My Next.js App</h1>
+      <Heading>My Next.js App</Heading>
       <p>Hello World, this is a Next.js app</p>
     </>
   );

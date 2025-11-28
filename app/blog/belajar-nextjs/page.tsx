@@ -1,7 +1,9 @@
+import Heading from "@/app/components/heading";
+
 export default function BelajarNextjs() {
   return (
     <>
-      <h1>Belajar Next.js</h1>
+      <Heading>Belajar Next.js</Heading>
       <p>haloooo</p>
     </>
   );
