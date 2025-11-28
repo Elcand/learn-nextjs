@@ -1,14 +1,16 @@
-# Heading
+# Meme Kucing Tewas Mengenaskan
 
-## Sub-heading
+## Deskripsi Gambar
 
-Rich text with **bold** and _italic_.
+Gambar menampilkan seekor kucing yang terbaring miring dengan mata setengah terbuka dan lidah terjulur, memberikan kesan dramatis dan _overacting_ khas meme.
 
-paragraph baru
+Teks besar di bawah gambar berbunyi **"TEWAS MENGENASKAN"**, menambah efek humor gelap yang absurd.
+
+Paragraf baru
 
 List:
 
-- satu
-- Dua
-- Tiga
-- Empat
+- Kucing terbaring miring
+- Mata setengah terbuka
+- Lidah menjulur keluar
+- Teks bold: "TEWAS MENGENASKAN"
