@@ -1,3 +1,10 @@
+---
+title: "Koetjing moekat"
+image: "/assets/image1.jpg"
+date: "28/11/2025"
+author: "Ikel"
+---
+
 # Meme Kucing Tewas Mengenaskan
 
 ## Deskripsi Gambar

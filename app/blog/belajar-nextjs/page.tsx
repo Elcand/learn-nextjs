@@ -1,16 +1,24 @@
 import Heading from "@/app/components/heading";
+import matter from "gray-matter";
 import { marked } from "marked";
 import { readFile } from "node:fs/promises";
 
 export default async function BelajarNextjs() {
   const text = await readFile("./content/blog/belajar-nextjs.md", "utf8");
-  const html = marked(text);
+  const {
+    content,
+    data: { title, image, date, author },
+  } = matter(text);
+  const html = marked(content);
 
   return (
     <>
-      <Heading>Belajar Next.js</Heading>
+      <Heading>{title}</Heading>
+      <p className="pb-2 text-sm italic">
+        {date} - {author}
+      </p>
       <img
-        src="/assets/image1.jpg"
+        src={image}
         alt=""
         width={360}
         height={360}
