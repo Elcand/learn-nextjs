@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Link from "next/link";
+import "./globals.css";
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,10 +11,10 @@ export default function Layout({ children }: LayoutProps) {
       <head>
         <title>Learn Next.js</title>
       </head>
-      <body>
+      <body className="flex flex-col min-h-screen px-4 py-4">
         <header>
           <nav>
-            <ul>
+            <ul className="flex gap-3">
               <li>
                 <Link href="/">Home</Link>
               </li>
@@ -29,9 +30,8 @@ export default function Layout({ children }: LayoutProps) {
             </ul>
           </nav>
         </header>
-        <main>{children}</main>
-        <footer>
-          <hr />
+        <main className="py-3 grow">{children}</main>
+        <footer className="py-3 text-xs text-center border-t">
           <p>I'm here to stay (footer)</p>
         </footer>
       </body>
