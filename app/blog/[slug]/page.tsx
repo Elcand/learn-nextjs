@@ -1,8 +1,8 @@
 import Heading from "@/app/components/heading";
 import { getPost } from "@/lib/post";
 
-export default async function BelajarNextjs() {
-  const post = await getPost("belajar-nextjs");
+export default async function PostPage({ params: { slug } }: any) {
+  const post = await getPost(slug);
   return (
     <>
       <Heading>{post.title}</Heading>
