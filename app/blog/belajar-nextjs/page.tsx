@@ -1,31 +1,23 @@
 import Heading from "@/app/components/heading";
-import matter from "gray-matter";
-import { marked } from "marked";
-import { readFile } from "node:fs/promises";
+import { getPost } from "@/lib/post";
 
 export default async function BelajarNextjs() {
-  const text = await readFile("./content/blog/belajar-nextjs.md", "utf8");
-  const {
-    content,
-    data: { title, image, date, author },
-  } = matter(text);
-  const html = marked(content);
-
+  const post = await getPost("belajar-nextjs");
   return (
     <>
-      <Heading>{title}</Heading>
+      <Heading>{post.title}</Heading>
       <p className="pb-2 text-sm italic">
-        {date} - {author}
+        {post.date} - {post.author}
       </p>
       <img
-        src={image}
+        src={post.image}
         alt=""
         width={360}
         height={360}
         className="mb-2 rounded"
       />
       <article
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: post.body }}
         className="max-w-screen-sm prose prose-slate"
       ></article>
     </>
