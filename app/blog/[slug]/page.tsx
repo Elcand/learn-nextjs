@@ -1,8 +1,15 @@
 import Heading from "@/app/components/heading";
 import { getPost } from "@/lib/post";
 
-export default async function PostPage({ params: { slug } }: any) {
+// Definisikan type dengan benar
+interface PostPageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function PostPage({ params }: PostPageProps) {
+  const { slug } = await params;
   const post = await getPost(slug);
+
   return (
     <>
       <Heading>{post.title}</Heading>
