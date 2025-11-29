@@ -5,19 +5,20 @@ import { getAllPost } from "@/lib/post";
 export default async function BlogPage() {
   const post = await getAllPost();
 
-  console.log(post);
   return (
     <>
       <Heading>Blog</Heading>
       <h2 className="mb-3 text-2xl">its blog</h2>
-      <PostCard
-        title="Belajar Next.js"
-        href="/blog/belajar-nextjs"
-        image="/assets/image1.jpg"
-        author="Admin"
-        description="haloo"
-        date="13.01.2022"
-      />
+      {post.map((post) => (
+        <PostCard
+          title={post.title}
+          href=""
+          image={post.image}
+          author={post.author}
+          description={post.description}
+          date={post.date}
+        />
+      ))}
     </>
   );
 }
