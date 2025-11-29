@@ -6,6 +6,15 @@ interface PostPageProps {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateMetadata({ params }: PostPageProps) {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  return {
+    title: post.title,
+  };
+}
+
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
   const post = await getPost(slug);

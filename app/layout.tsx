@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 export default function Layout({ children }: LayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" className="font-poppins">
       <head>
         <title>Learn Next.js</title>
       </head>
