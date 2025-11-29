@@ -11,8 +11,9 @@ export default async function BlogPage() {
       <h2 className="mb-3 text-2xl">its blog</h2>
       {post.map((post) => (
         <PostCard
+          key={post.slug}
           title={post.title}
-          href=""
+          href={`/blog/${post.slug}`}
           image={post.image}
           author={post.author}
           description={post.description}

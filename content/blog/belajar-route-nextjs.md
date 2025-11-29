@@ -1,5 +1,6 @@
 ---
 title: "Belajar Route NextJs"
+description: "omagattt"
 image: "/assets/image2.jpg"
 date: "28/11/2025"
 author: "Ikel"

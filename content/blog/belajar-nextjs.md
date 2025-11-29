@@ -1,5 +1,6 @@
 ---
 title: "Koetjing moekat"
+description: "omagattt"
 image: "/assets/image1.jpg"
 date: "28/11/2025"
 author: "Ikel"
