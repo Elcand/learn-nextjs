@@ -1,4 +1,5 @@
 import Heading from "@/app/components/heading";
+import ShareLinkButton from "@/app/components/share-link-button";
 import { getPost } from "@/lib/post";
 
 // Definisikan type dengan benar
@@ -22,9 +23,12 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <>
       <Heading>{post.title}</Heading>
-      <p className="pb-2 text-sm italic">
-        {post.date} - {post.author}
-      </p>
+      <div className="flex gap-3 mb-4">
+        <p className="pb-2 text-sm italic">
+          {post.date} - {post.author}
+        </p>
+        <ShareLinkButton />
+      </div>
       <img
         src={post.image}
         alt=""
