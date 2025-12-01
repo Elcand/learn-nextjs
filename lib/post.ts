@@ -2,6 +2,7 @@
 import matter from "gray-matter";
 import { marked } from "marked";
 import { readFile, readdir } from "node:fs/promises";
+import qs from "qs";
 
 export async function getPost(slug: string) {
   const text = await readFile(`./content/blog/${slug}.md`, "utf8");
@@ -15,15 +16,35 @@ export async function getPost(slug: string) {
 }
 
 export async function getAllPost() {
-  const slugs = await getSlugs();
+  const url =
+    "http://localhost:1337/api/posts" +
+    "?" +
+    qs.stringify(
+      {
+        fields: [
+          "slug",
+          "title",
+          "description",
+          "publishedAt",
+          "author",
+          "body",
+        ],
+        populate: { image: { fields: ["url"] } },
+        sort: ["publishedAt:desc"],
+        pagination: { pageSize: 3 },
+      },
+      { encodeValuesOnly: true }
+    );
   const posts = [];
 
-  for (const slug of slugs) {
-    const post = await getPost(slug);
-    posts.push(post);
-  };
+  const response = await fetch(url);
+  const { data } = await response.json();
+  console.log(data);
 
-  return posts;
+  return data.map(({ attributes }: any) => ({
+    slug: attributes.slug,
+    title: attributes.title,
+  }));
 }
 
 export async function getSlugs() {
