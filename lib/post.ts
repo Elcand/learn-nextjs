@@ -15,15 +15,20 @@ export async function getPost(slug: string) {
 }
 
 export async function getAllPost() {
-  const files = await readdir(`./content/blog`);
-  const slugs = files.filter((file) => file.endsWith(".md")).map((file) => file.slice(0, -".md".length));
-
-  const posts =[];
+  const slugs = await getSlugs();
+  const posts = [];
 
   for (const slug of slugs) {
     const post = await getPost(slug);
     posts.push(post);
-  }
+  };
 
   return posts;
+}
+
+export async function getSlugs() {
+  const files = await readdir("./content/blog");
+  return files
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => file.slice(0, -".md".length));
 }

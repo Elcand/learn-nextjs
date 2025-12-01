@@ -1,10 +1,17 @@
 import Heading from "@/app/components/heading";
 import ShareLinkButton from "@/app/components/share-link-button";
-import { getPost } from "@/lib/post";
+import { getPost, getSlugs } from "@/lib/post";
 
 // Definisikan type dengan benar
 interface PostPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export const revalidate = 30;
+
+export async function generateStaticParams() {
+  const slugs = await getSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PostPageProps) {
@@ -13,6 +20,7 @@ export async function generateMetadata({ params }: PostPageProps) {
 
   return {
     title: post.title,
+    description: post.description,
   };
 }
 
